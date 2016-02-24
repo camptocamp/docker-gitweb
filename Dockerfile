@@ -35,4 +35,8 @@ RUN apt-get update \
 
 RUN a2enmod cgi
 
+COPY ./docker-entrypoint.sh /
+COPY ./docker-entrypoint.d /docker-entrypoint.d
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["apache2", "-DFOREGROUND"]
